@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Duing Distribution – návrh (profi korporátní styl)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .duing{
+      --bg: #f2f4f7;
+      --panel: #ffffff;
+      --text: #111827;
+
+      --ink: #0f172a;
+      --dark: #2b3441;
+      --dark2:#242c37;
+
+      --accent: #e11d48;
+      --accent2:#2563eb;
+
+      --shadow: 0 26px 70px rgba(15,23,42,.16);
+      --shadowSoft: 0 18px 45px rgba(15,23,42,.12);
+
+      --max: 1160px;
+
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .duing *{ box-sizing: border-box; }
+    .duing img{ max-width: 100%; height: auto; display:block; }
+    .duing a{ color: inherit; text-decoration:none; }
+    .duing .inner{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ================= HEADER ================= */
+    .duing .header{
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .duing .header .bar{
+      height: 78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    .duing .brand{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap: 14px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .duing .brand-logo{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    /* NOVÉ LOGO (větší, korporátní) */
+    .duing .brand-logo img{
+      height: 46px;
+      width: auto;
+    }
+
+    .duing .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.08;
+      min-width: 0;
+    }
+
+    /* Název firmy už je v logu – necháme jen tagline */
+    .duing .brand-text b{ display:none; }
+
+    .duing .brand-text span{
+      font-size: 12px;
+      color: rgba(17,24,39,.62);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+
+    .duing .header-right{
+      flex: 0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      min-width: max-content;
+    }
+
+    /* ====== CTA NAHOŘE VPRAVO ====== */
+    .duing .cta-top{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: -.01em;
+      border: 0;
+      color: #0b1220;
+      background: linear-gradient(135deg, rgba(225,29,72,.98) 0%, rgba(239,68,68,.92) 55%, rgba(251,146,60,.90) 140%);
+      box-shadow: 0 10px 20px rgba(225,29,72,.14);
+      transition:
+        transform .35s cubic-bezier(.25,.8,.25,1),
+        box-shadow .35s cubic-bezier(.25,.8,.25,1),
+        filter .35s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+      cursor: pointer;
+    }
+    .duing .cta-top:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(225,29,72,.16);
+      filter: brightness(1.03) saturate(1.05);
+    }
+    .duing .cta-top:active{
+      transform: translateY(-1px) scale(.99);
+    }
+
+    /* ================= HERO ================= */
+    .duing .hero{
+      position: relative;
+      height: min(72vh, 760px);
+      overflow: hidden;
+
+      background:
+        radial-gradient(900px 540px at 20% 20%, rgba(37,99,235,.22), transparent 60%),
+        radial-gradient(900px 540px at 80% 65%, rgba(225,29,72,.18), transparent 62%),
+        linear-gradient(180deg, #0f172a 0%, #1f2937 60%, #111827 100%);
+
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.22) 45%, rgba(0,0,0,.18) 100%),
+        url("images/valce.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .duing .hero img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(1.03);
+      transform: scale(1.03);
+    }
+
+    .duing .hero .overlay{
+      position:absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.14) 100%),
+        radial-gradient(900px 520px at 20% 20%, rgba(0,0,0,.22), transparent 60%),
+        radial-gradient(900px 520px at 80% 60%, rgba(0,0,0,.14), transparent 62%);
+      pointer-events:none;
+    }
+
+    /* ================= FLOATING INFO BOX ================= */
+    .duing .info-wrap{
+      position: relative;
+      margin-top: -120px;
+      padding-bottom: 44px;
+    }
+
+    .duing .info-box{
+      background: var(--panel);
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow);
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .duing .info-head{
+      text-align:center;
+      padding: 18px 20px 12px;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -.01em;
+    }
+
+    .duing .info-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 0;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+
+    .duing .info-item{
+      padding: 18px 16px;
+      text-align:center;
+      color: rgba(17,24,39,.85);
+      line-height: 1.45;
+      font-size: 14px;
+      min-height: 84px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+    }
+
+    .duing .info-item:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      right: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 2px;
+      background: rgba(225,29,72,.55);
+    }
+
+    /* ================= TRUST / DŮVĚRYHODNOST ================= */
+    .duing .trust{
+      padding: 78px 0;
+      background: #ffffff;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+
+    .duing .trust-box{
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .duing .trust h2{
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: #111827;
+    }
+
+    .duing .trust p{
+      margin: 0 auto 34px;
+      max-width: 860px;
+      color: rgba(17,24,39,.72);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .duing .trust-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+      text-align:left;
+    }
+
+    .duing .trust-item{
+      background: #f9fafb;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(17,24,39,.82);
+    }
+
+    .duing .trust-item strong{
+      display:block;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .duing .contact{
+      padding: 64px 0;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+    .duing .contact h2{
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: #111827;
+    }
+    .duing .contact .sub{
+      color: rgba(17,24,39,.70);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+
+    .duing .contact-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:start;
+    }
+
+    .duing .map{
+      width: 100%;
+      height: 360px;
+      border: 0;
+      background: #e5e7eb;
+      box-shadow: var(--shadowSoft);
+      border: 1px solid rgba(15,23,42,.10);
+    }
+
+    .duing .card{
+      background: #fff;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+    }
+
+    .duing .info{
+      color: rgba(17,24,39,.78);
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .duing form{ display:grid; gap: 10px; }
+    .duing input, .duing textarea, .duing button{ font: inherit; }
+
+    .duing input, .duing textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border: 1px solid rgba(15,23,42,.16);
+      background: #fff;
+      border-radius: 7px;
+      outline: none;
+      transition: box-shadow .25s ease, border-color .25s ease;
+    }
+    .duing input:focus, .duing textarea:focus{
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+    }
+    .duing textarea{ min-height: 140px; resize: vertical; }
+
+    .duing .submit{
+      cursor:pointer;
+      border: 0;
+      border-radius: 7px;
+      padding: 12px 14px;
+      font-weight: 900;
+      background: #111827;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(15,23,42,.12);
+      transition:
+        transform .35s cubic-bezier(.25,.8,.25,1),
+        box-shadow .35s cubic-bezier(.25,.8,.25,1),
+        filter .35s cubic-bezier(.25,.8,.25,1),
+        background .35s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+    }
+    .duing .submit:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(15,23,42,.16);
+      filter: brightness(1.05);
+      background: #0b1220;
+    }
+    .duing .submit:active{
+      transform: translateY(-1px) scale(.99);
+    }
+
+    /* ================= FOOTER ================= */
+    .duing .footer-top{
+      background: var(--dark);
+      color: rgba(255,255,255,.72);
+      padding: 46px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .duing .footer-grid{
+      display:grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 24px;
+      align-items:start;
+    }
+
+    .duing .footer-title{
+      color: rgba(255,255,255,.86);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .duing .footer-line{
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.70);
+    }
+    .duing .footer-line a{
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      transition: color .25s ease;
+    }
+    .duing .footer-line a:hover{
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .duing .footer-bottom{
+      background: var(--dark2);
+      color: rgba(255,255,255,.55);
+      padding: 16px 0;
+      font-size: 12px;
+    }
+    .duing .footer-bottom .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px){
+      .duing .contact-grid{ grid-template-columns: 1fr; }
+
+      .duing .info-grid{ grid-template-columns: 1fr 1fr; }
+      .duing .info-item:nth-child(2)::after{ display:none; }
+
+      .duing .trust-grid{ grid-template-columns: 1fr; }
+
+      .duing .footer-grid{ grid-template-columns: 1fr; }
+      .duing .footer-box{ border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; }
+      .duing .footer-box:first-child{ border-top:0; padding-top:0; }
+    }
+
+    @media (max-width: 520px){
+      .duing .brand-text span{ display:none; }
+      .duing .cta-top{ width: 100%; justify-content:center; }
+
+      .duing .info-wrap{ margin-top: -90px; }
+      .duing .info-grid{ grid-template-columns: 1fr; }
+      .duing .info-item::after{ display:none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .duing .cta-top, .duing .submit{ transition:none !important; }
+    }
+  </style>
+</head>
+
+<body style="margin:0">
+  <div class="duing" id="top">
+
+    <header class="header">
+      <div class="inner bar">
+        <a class="brand" href="#top" aria-label="Zpět na začátek">
+          <span class="brand-logo">
+            <!-- NOVÉ LOGO (to co jsi poslal) -->
+            <img src="logo_duing.png" alt="DUING Distribution s.r.o.">
+            <span class="brand-text">
+              <b>Duing Distribution s.r.o.</b>
+              <span>pístní tyče • honované a přesné trubky</span>
+            </span>
+          </span>
+        </a>
+
+        <div class="header-right">
+          <a class="cta-top" href="#kontakt">Poptat nabídku</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Úvodní fotografie">
+      <div class="overlay"></div>
+      <img src="images/valce.webp" alt="" aria-hidden="true" loading="eager">
+    </section>
+
+    <section class="info-wrap" aria-label="Oblasti dodávek">
+      <div class="inner">
+        <div class="info-box">
+          <div class="info-head">Duing Distribution s.r.o. dodává pro průmysl a hydrauliku</div>
+          <div class="info-grid" id="sortiment">
+            <div class="info-item">pístní tyče – přesně broušené, vysoká odolnost</div>
+            <div class="info-item">honované trubky – bezešvé pro hydraulické válce</div>
+            <div class="info-item">přesné trubky – pro servis, repase i nové projekty</div>
+            <div class="info-item">individuální dodávky – rozměry, tolerance, množství, termíny</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOVÁ SEKCE: DŮVĚRYHODNOST -->
+    <section class="trust" aria-label="Důvěryhodnost a přístup">
+      <div class="inner">
+        <div class="trust-box">
+          <h2>Spolehlivý partner pro hydrauliku a průmysl</h2>
+          <p>
+            Duing Distribution s.r.o. zajišťuje dodávky pístních tyčí, honovaných a přesných trubek
+            pro výrobce a servis hydraulických válců. Stavíme na stabilní kvalitě materiálu,
+            přesnosti rozměrů a dodávkách dle specifikace zákazníka.
+          </p>
+
+          <div class="trust-grid">
+            <div class="trust-item">
+              <strong>Technická přesnost</strong>
+              Dodávky dle požadovaných tolerancí a parametrů pro hydraulické aplikace.
+            </div>
+
+            <div class="trust-item">
+              <strong>Individuální řešení</strong>
+              Rozměry, množství a termíny dodání nastavíme podle konkrétního projektu.
+            </div>
+
+            <div class="trust-item">
+              <strong>Průmyslové využití</strong>
+              Materiály vhodné pro náročné provozy, servis i nové výrobní celky.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="inner">
+        <h2>Kontakt</h2>
+        <p class="sub">Ozvěte se nám – připravíme nabídku na míru (rozměry, tolerance, materiál, množství, termín).</p>
+
+        <div class="contact-grid">
+          <iframe class="map"
+            src="https://www.google.com/maps?q=Radni%C4%8Dn%C3%AD%20910%2F73%2C%20715%2000%20Ostrava&output=embed"
+            loading="lazy"
+            title="Mapa – Duing Distribution"></iframe>
+
+          <div class="card">
+            <div class="info">
+              <b>Duing Distribution s.r.o.</b><br>
+              Radniční 910/73, 715 00 Ostrava-Michálkovice<br>
+              📞 <a href="tel:+420732273560">+420 732 273 560</a><br>
+              ✉️ <a href="mailto:jan.duda@duing.cz">jan.duda@duing.cz</a>
+            </div>
+
+            <form action="https://formspree.io/f/xxxxyz" method="POST">
+              <input type="text" name="name" placeholder="Jméno / Firma" required>
+              <input type="email" name="email" placeholder="E-mail" required>
+              <textarea name="message" placeholder="Vaše poptávka (rozměry, materiál, množství…)" required></textarea>
+              <button class="submit" type="submit">Odeslat poptávku</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="inner footer-grid">
+          <div class="footer-box">
+            <div class="footer-title">Duing Distribution s.r.o.</div>
+            <div class="footer-line">Radniční 910/73, 715 00 Ostrava-Michálkovice</div>
+            <div class="footer-line">Dodávky pístních tyčí, honovaných a přesných trubek</div>
+          </div>
+
+          <div class="footer-box">
+            <div class="footer-title">Kontakt</div>
+            <div class="footer-line"><a href="tel:+420732273560">+420 732 273 560</a></div>
+            <div class="footer-line"><a href="mailto:jan.duda@duing.cz">jan.duda@duing.cz</a></div>
+            <div class="footer-line"><a href="#top">Zpět nahoru</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="inner row">
+          <div>Duing Distribution s.r.o. © 2026</div>
+          <div style="opacity:.85;">Web návrh – korporátní prezentace</div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Smooth “glide” scroll -->
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const easeInOutCubic = (t) => (t < 0.5) ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      function smoothScrollTo(targetY, duration) {
+        const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const endY = Math.min(Math.max(0, targetY), maxScroll);
+        const diff = endY - startY;
+        if (Math.abs(diff) < 2) return;
+
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          window.scrollTo(0, startY + diff * easeInOutCubic(t));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const id = href.slice(1);
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('.duing .header');
+        const offset = header ? header.getBoundingClientRect().height + 10 : 0;
+
+        const rect = el.getBoundingClientRect();
+        const targetY = (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top - offset;
+
+        smoothScrollTo(targetY, 750);
+        history.pushState(null, '', href);
+      }, { passive: false });
+    })();
+  </script>
+</body>
+</html>
