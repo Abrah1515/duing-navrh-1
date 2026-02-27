@@ -145,21 +145,19 @@
         radial-gradient(900px 540px at 80% 65%, rgba(225,29,72,.18), transparent 62%),
         linear-gradient(180deg, #0f172a 0%, #1f2937 60%, #111827 100%);
 
+      /* ✅ obrázek je ve stejné složce jako HTML */
       background-image:
         linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.22) 45%, rgba(0,0,0,.18) 100%),
-        url("images/valce.webp");
-      background-size: cover;
-      background-position: center;
+        url("uvod.png");
+
+      /* ✅ menší/oddálený obrázek */
+      background-size: 82% auto;
+      background-position: center 35%;
       background-repeat: no-repeat;
     }
 
-    .duing .hero img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: contrast(1.05) saturate(1.03);
-      transform: scale(1.03);
-    }
+    /* ✅ důležité: img v hero nepoužíváme (jinak překryje background a nic neuvidíš) */
+    .duing .hero img{ display:none; }
 
     .duing .hero .overlay{
       position:absolute;
@@ -456,7 +454,6 @@
       <div class="inner bar">
         <a class="brand" href="#top" aria-label="Zpět na začátek">
           <span class="brand-logo">
-            <!-- NOVÉ LOGO (to co jsi poslal) -->
             <img src="logo_duing.png" alt="DUING Distribution s.r.o.">
             <span class="brand-text">
               <b>Duing Distribution s.r.o.</b>
@@ -473,7 +470,7 @@
 
     <section class="hero" aria-label="Úvodní fotografie">
       <div class="overlay"></div>
-      <img src="images/valce.webp" alt="" aria-hidden="true" loading="eager">
+      <!-- img odstraněno: obrázek je už jen v backgroundu, aby šel skutečně zmenšit -->
     </section>
 
     <section class="info-wrap" aria-label="Oblasti dodávek">
@@ -490,7 +487,6 @@
       </div>
     </section>
 
-    <!-- NOVÁ SEKCE: DŮVĚRYHODNOST -->
     <section class="trust" aria-label="Důvěryhodnost a přístup">
       <div class="inner">
         <div class="trust-box">
@@ -579,7 +575,6 @@
 
   </div>
 
-  <!-- Smooth “glide” scroll -->
   <script>
     (function () {
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
