@@ -2,523 +2,635 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Duing Distribution s.r.o. – pístní tyče • honované a přesné trubky</title>
-  <meta name="description" content="Duing Distribution s.r.o. – pístní tyče, honované a přesné trubky pro průmysl a hydrauliku. Individuální dodávky, tolerance, termíny." />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Duing Distribution – návrh (profi korporátní styl)</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#0b0f16;
-      --panel:#0f1623;
-      --card:#111a28;
-      --text:#0f172a;
-      --text2:#111827;
-      --muted:#5b6472;
-      --muted2:#7b8596;
-      --line:rgba(15,23,42,.12);
+    .duing{
+      --bg: #f2f4f7;
+      --panel: #ffffff;
+      --text: #111827;
 
-      --brand:#e94057;  /* červená CTA */
-      --brand2:#f27121; /* lehký gradient pro CTA */
-      --accent:#ef476f;
+      --ink: #0f172a;
+      --dark: #2b3441;
+      --dark2:#242c37;
 
-      --shadow: 0 18px 55px rgba(2,6,23,.22);
-      --shadow2: 0 10px 28px rgba(2,6,23,.16);
+      --accent: #e11d48;
+      --accent2:#2563eb;
 
-      --radius:18px;
-      --radius2:24px;
+      --shadow: 0 26px 70px rgba(15,23,42,.16);
+      --shadowSoft: 0 18px 45px rgba(15,23,42,.12);
 
-      --max:1180px;
-      --headerH:78px;
+      --max: 1160px;
+
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text2);
-      background:#fff;
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px;}
+    .duing *{ box-sizing: border-box; }
+    .duing img{ max-width: 100%; height: auto; display:block; }
+    .duing a{ color: inherit; text-decoration:none; }
+    .duing .inner{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
-    /* ===== Header ===== */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(255,255,255,.92);
-      backdrop-filter:saturate(1.2) blur(10px);
-      border-bottom:1px solid rgba(15,23,42,.08);
+    /* ================= HEADER ================= */
+    .duing .header{
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(15,23,42,.08);
     }
-    .topbar .inner{
-      height:var(--headerH);
+    .duing .header .bar{
+      height: 78px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap: 12px;
     }
 
-    .brand{
+    .duing .brand{
       display:flex;
       align-items:center;
-      gap:14px;
-      min-width:240px;
+      justify-content:flex-start;
+      gap: 14px;
+      flex: 1 1 auto;
+      min-width: 0;
     }
-    .brandMark{
-      width:58px;
-      height:34px;
+
+    .duing .brand-logo{
       display:flex;
       align-items:center;
-      justify-content:center;
-      font-weight:900;
-      letter-spacing:.6px;
-      color:#111827;
+      gap: 12px;
+      min-width: 0;
     }
-    .brandText{
+
+    /* NOVÉ LOGO (větší, korporátní) */
+    .duing .brand-logo img{
+      height: 46px;
+      width: auto;
+    }
+
+    .duing .brand-text{
       display:flex;
       flex-direction:column;
-      gap:2px;
+      line-height:1.08;
+      min-width: 0;
     }
-    .brandText b{font-size:14px; letter-spacing:.2px}
-    .brandText span{font-size:13px; color:var(--muted2)}
 
-    nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:center;
-      flex:1;
-      min-width:200px;
+    /* Název firmy už je v logu – necháme jen tagline */
+    .duing .brand-text b{ display:none; }
+
+    .duing .brand-text span{
+      font-size: 12px;
+      color: rgba(17,24,39,.62);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
     }
-    nav a{
-      font-size:13px;
-      color:#1f2937;
-      padding:10px 10px;
-      border-radius:12px;
-      transition:.2s;
-      white-space:nowrap;
-    }
-    nav a:hover{background:rgba(17,24,39,.06)}
-    .cta{
+
+    .duing .header-right{
+      flex: 0 0 auto;
       display:flex;
       align-items:center;
-      gap:10px;
+      justify-content:flex-end;
+      min-width: max-content;
     }
-    .btn{
+
+    /* ====== CTA NAHOŘE VPRAVO ====== */
+    .duing .cta-top{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(15,23,42,.10);
-      background:#fff;
-      color:#0f172a;
-      font-weight:700;
-      font-size:13px;
-      box-shadow:0 6px 16px rgba(2,6,23,.08);
-      cursor:pointer;
-      transition:.2s;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: -.01em;
+      border: 0;
+      color: #0b1220;
+      background: linear-gradient(135deg, rgba(225,29,72,.98) 0%, rgba(239,68,68,.92) 55%, rgba(251,146,60,.90) 140%);
+      box-shadow: 0 10px 20px rgba(225,29,72,.14);
+      transition:
+        transform .35s cubic-bezier(.25,.8,.25,1),
+        box-shadow .35s cubic-bezier(.25,.8,.25,1),
+        filter .35s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+      cursor: pointer;
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btnPrimary{
-      border:none;
-      color:#fff;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      box-shadow:0 18px 40px rgba(233,64,87,.22);
+    .duing .cta-top:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(225,29,72,.16);
+      filter: brightness(1.03) saturate(1.05);
+    }
+    .duing .cta-top:active{
+      transform: translateY(-1px) scale(.99);
     }
 
-    /* ===== Hero ===== */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border-bottom:1px solid rgba(15,23,42,.08);
+    /* ================= HERO ================= */
+    .duing .hero{
+      position: relative;
+      height: min(72vh, 760px);
+      overflow: hidden;
+
       background:
-        linear-gradient(180deg, rgba(10,12,18,.55) 0%, rgba(10,12,18,.30) 50%, rgba(255,255,255,.00) 100%),
-    url("images/valce.png") center 40% / 85% no-repeat;
-  background-color:#f3f4f6;
-  min-height:60vh;
-      display:flex;
-      align-items:flex-end;
+        radial-gradient(900px 540px at 20% 20%, rgba(37,99,235,.22), transparent 60%),
+        radial-gradient(900px 540px at 80% 65%, rgba(225,29,72,.18), transparent 62%),
+        linear-gradient(180deg, #0f172a 0%, #1f2937 60%, #111827 100%);
+
+      /* ✅ jen změna: webp -> png */
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.22) 45%, rgba(0,0,0,.18) 100%),
+        url("images/valce.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    /* jemná viněta okolo */
-    .hero:before{
-      content:"";
+
+    .duing .hero img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      /* ✅ jemnější úprava – bez přiblížení, to dělalo “rozmazaný” pocit */
+      object-position: center 35%;
+      filter: contrast(1.03) saturate(1.02);
+      transform: none;
+    }
+
+    .duing .hero .overlay{
       position:absolute;
-      inset:-2px;
-      background:radial-gradient(1200px 500px at 50% 20%, rgba(255,255,255,.16), rgba(0,0,0,0) 70%);
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.14) 100%),
+        radial-gradient(900px 520px at 20% 20%, rgba(0,0,0,.22), transparent 60%),
+        radial-gradient(900px 520px at 80% 60%, rgba(0,0,0,.14), transparent 62%);
       pointer-events:none;
     }
-    .heroInner{
-      position:relative;
-      width:100%;
-      padding:42px 0 56px;
+
+    /* ================= FLOATING INFO BOX ================= */
+    .duing .info-wrap{
+      position: relative;
+      margin-top: -120px;
+      padding-bottom: 44px;
     }
 
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:28px;
-      align-items:end;
-    }
-
-    .heroTitle{
-      color:#fff;
-      text-shadow:0 10px 30px rgba(0,0,0,.35);
-    }
-    .heroTitle h1{
-      margin:0 0 12px;
-      font-size:36px;
-      line-height:1.12;
-      letter-spacing:-.6px;
-    }
-    .heroTitle p{
-      margin:0;
-      max-width:56ch;
-      color:rgba(255,255,255,.86);
-      font-size:15px;
-    }
-    .heroActions{
-      margin-top:18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btnGhost{
-      background:rgba(255,255,255,.14);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow:none;
-    }
-    .btnGhost:hover{background:rgba(255,255,255,.18)}
-
-    /* ten bílý box co máš na screenu */
-    .heroCard{
-      background:rgba(255,255,255,.95);
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:var(--radius2);
+    .duing .info-box{
+      background: var(--panel);
+      border: 1px solid rgba(15,23,42,.08);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      border-radius: 0;
+      overflow: hidden;
     }
-    .heroCardHead{
-      padding:16px 18px;
-      border-bottom:1px solid rgba(15,23,42,.08);
-      font-weight:800;
+
+    .duing .info-head{
       text-align:center;
+      padding: 18px 20px 12px;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -.01em;
     }
-    .heroBadges{
+
+    .duing .info-grid{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:0;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 0;
+      border-top: 1px solid rgba(15,23,42,.08);
     }
-    .badge{
-      padding:16px 14px;
+
+    .duing .info-item{
+      padding: 18px 16px;
       text-align:center;
-      font-size:13px;
-      color:#111827;
-      position:relative;
+      color: rgba(17,24,39,.85);
+      line-height: 1.45;
+      font-size: 14px;
+      min-height: 84px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
     }
-    .badge:not(:last-child):after{
+
+    .duing .info-item:not(:last-child)::after{
       content:"";
       position:absolute;
-      right:0;
-      top:18px;
-      bottom:18px;
-      width:2px;
-      background:rgba(233,64,87,.55);
-      border-radius:2px;
+      right: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 2px;
+      background: rgba(225,29,72,.55);
     }
 
-    /* ===== Sections ===== */
-    section{padding:56px 0}
-    .sectionTitle{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom:18px;
-    }
-    .sectionTitle h2{
-      margin:0;
-      font-size:22px;
-      letter-spacing:-.3px;
-    }
-    .sectionTitle p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      max-width:60ch;
+    /* ================= TRUST / DŮVĚRYHODNOST ================= */
+    .duing .trust{
+      padding: 78px 0;
+      background: #ffffff;
+      border-top: 1px solid rgba(15,23,42,.08);
     }
 
-    .cards{
+    .duing .trust-box{
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .duing .trust h2{
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: #111827;
+    }
+
+    .duing .trust p{
+      margin: 0 auto 34px;
+      max-width: 860px;
+      color: rgba(17,24,39,.72);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .duing .trust-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+      text-align:left;
     }
-    .card{
-      background:#fff;
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow2);
-      padding:18px;
-    }
-    .card b{display:block; margin-bottom:8px}
-    .card p{margin:0;color:var(--muted); font-size:13px}
 
-    .grid2{
+    .duing .trust-item{
+      background: #f9fafb;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(17,24,39,.82);
+    }
+
+    .duing .trust-item strong{
+      display:block;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .duing .contact{
+      padding: 64px 0;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+    .duing .contact h2{
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: #111827;
+    }
+    .duing .contact .sub{
+      color: rgba(17,24,39,.70);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+
+    .duing .contact-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap:16px;
+      gap: 18px;
       align-items:start;
     }
-    .panel{
-      background:#fff;
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow2);
-      padding:18px;
+
+    .duing .map{
+      width: 100%;
+      height: 360px;
+      border: 0;
+      background: #e5e7eb;
+      box-shadow: var(--shadowSoft);
+      border: 1px solid rgba(15,23,42,.10);
     }
-    .list{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
+
+    .duing .card{
+      background: #fff;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: var(--shadowSoft);
+      padding: 18px;
+    }
+
+    .duing .info{
+      color: rgba(17,24,39,.78);
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .duing form{ display:grid; gap: 10px; }
+    .duing input, .duing textarea, .duing button{ font: inherit; }
+
+    .duing input, .duing textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border: 1px solid rgba(15,23,42,.16);
+      background: #fff;
+      border-radius: 7px;
+      outline: none;
+      transition: box-shadow .25s ease, border-color .25s ease;
+    }
+    .duing input:focus, .duing textarea:focus{
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+    }
+    .duing textarea{ min-height: 140px; resize: vertical; }
+
+    .duing .submit{
+      cursor:pointer;
+      border: 0;
+      border-radius: 7px;
+      padding: 12px 14px;
+      font-weight: 900;
+      background: #111827;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(15,23,42,.12);
+      transition:
+        transform .35s cubic-bezier(.25,.8,.25,1),
+        box-shadow .35s cubic-bezier(.25,.8,.25,1),
+        filter .35s cubic-bezier(.25,.8,.25,1),
+        background .35s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+    }
+    .duing .submit:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(15,23,42,.16);
+      filter: brightness(1.05);
+      background: #0b1220;
+    }
+    .duing .submit:active{
+      transform: translateY(-1px) scale(.99);
+    }
+
+    /* ================= FOOTER ================= */
+    .duing .footer-top{
+      background: var(--dark);
+      color: rgba(255,255,255,.72);
+      padding: 46px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .duing .footer-grid{
       display:grid;
-      gap:8px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .list li{
-      padding-left:14px;
-      position:relative;
-    }
-    .list li:before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.6em;
-      width:6px;height:6px;border-radius:50%;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      transform:translateY(-50%);
+      grid-template-columns: 1.25fr 1fr;
+      gap: 24px;
+      align-items:start;
     }
 
-    .contactBox{
-      display:grid;
-      gap:10px;
+    .duing .footer-title{
+      color: rgba(255,255,255,.86);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+      font-size: 13px;
+      text-transform: uppercase;
     }
-    .contactRow{
+    .duing .footer-line{
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.70);
+    }
+    .duing .footer-line a{
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      transition: color .25s ease;
+    }
+    .duing .footer-line a:hover{
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .duing .footer-bottom{
+      background: var(--dark2);
+      color: rgba(255,255,255,.55);
+      padding: 16px 0;
+      font-size: 12px;
+    }
+    .duing .footer-bottom .row{
       display:flex;
+      align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding:12px 12px;
-      border:1px solid rgba(15,23,42,.10);
-      border-radius:14px;
-      background:rgba(2,6,23,.02);
-      font-size:13px;
-    }
-    .contactRow span{color:var(--muted)}
-    .contactRow b{font-weight:800}
-
-    /* ===== Footer ===== */
-    footer{
-      padding:28px 0;
-      border-top:1px solid rgba(15,23,42,.10);
-      color:var(--muted);
-      font-size:13px;
-    }
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    /* ===== Responsive ===== */
     @media (max-width: 980px){
-      nav{display:none}
-      .heroGrid{grid-template-columns:1fr; align-items:start}
-      .hero{min-height:72vh}
-      .heroTitle h1{font-size:32px}
-      .heroBadges{grid-template-columns:1fr 1fr}
-      .badge:nth-child(2):after{display:none}
-      .cards{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
+      .duing .contact-grid{ grid-template-columns: 1fr; }
+
+      .duing .info-grid{ grid-template-columns: 1fr 1fr; }
+      .duing .info-item:nth-child(2)::after{ display:none; }
+
+      .duing .trust-grid{ grid-template-columns: 1fr; }
+
+      .duing .footer-grid{ grid-template-columns: 1fr; }
+      .duing .footer-box{ border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; }
+      .duing .footer-box:first-child{ border-top:0; padding-top:0; }
+    }
+
+    @media (max-width: 520px){
+      .duing .brand-text span{ display:none; }
+      .duing .cta-top{ width: 100%; justify-content:center; }
+
+      .duing .info-wrap{ margin-top: -90px; }
+      .duing .info-grid{ grid-template-columns: 1fr; }
+      .duing .info-item::after{ display:none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .duing .cta-top, .duing .submit{ transition:none !important; }
     }
   </style>
 </head>
 
-<body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="inner topbar inner">
-        <a class="brand" href="#top">
-          <!-- Pokud máš logo jako obrázek, vyměň brandMark za <img src="images/logo.png" ...> -->
-          <div class="brandMark">DUING</div>
-          <div class="brandText">
-            <b>Distribution s.r.o.</b>
-            <span>pístní tyče • honované a přesné trubky</span>
-          </div>
+<body style="margin:0">
+  <div class="duing" id="top">
+
+    <header class="header">
+      <div class="inner bar">
+        <a class="brand" href="#top" aria-label="Zpět na začátek">
+          <span class="brand-logo">
+            <!-- NOVÉ LOGO (to co jsi poslal) -->
+            <img src="logo_duing.png" alt="DUING Distribution s.r.o.">
+            <span class="brand-text">
+              <b>Duing Distribution s.r.o.</b>
+              <span>pístní tyče • honované a přesné trubky</span>
+            </span>
+          </span>
         </a>
 
-        <nav aria-label="Hlavní navigace">
-          <a href="#sortiment">Sortiment</a>
-          <a href="#dodavky">Dodávky</a>
-          <a href="#o-nas">O nás</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn btnPrimary" href="#kontakt">Poptat nabídku</a>
+        <div class="header-right">
+          <a class="cta-top" href="#kontakt">Poptat nabídku</a>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="top">
-    <section class="hero" aria-label="Úvod">
-      <div class="wrap heroInner">
-        <div class="heroGrid">
-          <div class="heroTitle">
-            <h1>Duing Distribution s.r.o. dodává pro průmysl a hydrauliku</h1>
-            <p>
-              Přesné komponenty a materiál pro hydraulické válce a servis. Rychlá komunikace,
-              dohledatelné dodávky a důraz na tolerance.
-            </p>
-            <div class="heroActions">
-              <a class="btn btnPrimary" href="#kontakt">Poptat nabídku</a>
-              <a class="btn btnGhost" href="#sortiment">Zobrazit sortiment</a>
-            </div>
+    <section class="hero" aria-label="Úvodní fotografie">
+      <div class="overlay"></div>
+      <!-- ✅ jen změna: webp -> png -->
+      <img src="images/valce.png" alt="" aria-hidden="true" loading="eager">
+    </section>
+
+    <section class="info-wrap" aria-label="Oblasti dodávek">
+      <div class="inner">
+        <div class="info-box">
+          <div class="info-head">Duing Distribution s.r.o. dodává pro průmysl a hydrauliku</div>
+          <div class="info-grid" id="sortiment">
+            <div class="info-item">pístní tyče – přesně broušené, vysoká odolnost</div>
+            <div class="info-item">honované trubky – bezešvé pro hydraulické válce</div>
+            <div class="info-item">přesné trubky – pro servis, repase i nové projekty</div>
+            <div class="info-item">individuální dodávky – rozměry, tolerance, množství, termíny</div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="heroCard" role="group" aria-label="Hlavní výhody">
-            <div class="heroCardHead">Klíčové dodávky</div>
-            <div class="heroBadges">
-              <div class="badge">pístní tyče – přesně broušené, vysoká odolnost</div>
-              <div class="badge">honované trubky – bezešvé pro hydraulické válce</div>
-              <div class="badge">přesné trubky – pro servis, repase i nové projekty</div>
-              <div class="badge">individuální dodávky – rozměry, tolerance, množství, termíny</div>
+    <!-- NOVÁ SEKCE: DŮVĚRYHODNOST -->
+    <section class="trust" aria-label="Důvěryhodnost a přístup">
+      <div class="inner">
+        <div class="trust-box">
+          <h2>Spolehlivý partner pro hydrauliku a průmysl</h2>
+          <p>
+            Duing Distribution s.r.o. zajišťuje dodávky pístních tyčí, honovaných a přesných trubek
+            pro výrobce a servis hydraulických válců. Stavíme na stabilní kvalitě materiálu,
+            přesnosti rozměrů a dodávkách dle specifikace zákazníka.
+          </p>
+
+          <div class="trust-grid">
+            <div class="trust-item">
+              <strong>Technická přesnost</strong>
+              Dodávky dle požadovaných tolerancí a parametrů pro hydraulické aplikace.
+            </div>
+
+            <div class="trust-item">
+              <strong>Individuální řešení</strong>
+              Rozměry, množství a termíny dodání nastavíme podle konkrétního projektu.
+            </div>
+
+            <div class="trust-item">
+              <strong>Průmyslové využití</strong>
+              Materiály vhodné pro náročné provozy, servis i nové výrobní celky.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sortiment">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <h2>Sortiment</h2>
-          <p>Dodáváme standardní i specifikované rozměry. U každé položky lze řešit tolerance a termíny dle potřeby.</p>
-        </div>
+    <section class="contact" id="kontakt">
+      <div class="inner">
+        <h2>Kontakt</h2>
+        <p class="sub">Ozvěte se nám – připravíme nabídku na míru (rozměry, tolerance, materiál, množství, termín).</p>
 
-        <div class="cards">
+        <div class="contact-grid">
+          <iframe class="map"
+            src="https://www.google.com/maps?q=Radni%C4%8Dn%C3%AD%20910%2F73%2C%20715%2000%20Ostrava&output=embed"
+            loading="lazy"
+            title="Mapa – Duing Distribution"></iframe>
+
           <div class="card">
-            <b>Pístní tyče</b>
-            <p>Přesně broušené tyče pro hydraulické aplikace, vysoká odolnost povrchu, dlouhá životnost.</p>
-          </div>
-          <div class="card">
-            <b>Honované trubky</b>
-            <p>Bezešvé trubky pro hydraulické válce, připravené pro přesnou výrobu a montáž.</p>
-          </div>
-          <div class="card">
-            <b>Přesné trubky</b>
-            <p>Materiál pro servis, repase i nové projekty. Řešení dle výkresu a požadovaných tolerancí.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dodavky" style="background:rgba(2,6,23,.02); border-top:1px solid rgba(15,23,42,.08); border-bottom:1px solid rgba(15,23,42,.08);">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <h2>Dodávky a spolupráce</h2>
-          <p>Umíme dodat kusově i ve větších objemech. Důraz na dohledatelnost, komunikaci a realistické termíny.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="panel">
-            <b>Co od nás čekat</b>
-            <ul class="list">
-              <li>Individuální nabídky podle rozměrů a tolerancí</li>
-              <li>Dodávky pro výrobu, servis i repase</li>
-              <li>Rychlá komunikace a potvrzení termínu</li>
-              <li>Možnost dlouhodobé spolupráce</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <b>Rychlé info</b>
-            <ul class="list">
-              <li>Uveďte prosím: rozměry, množství, materiál, tolerance</li>
-              <li>Ideálně přiložte výkres / specifikaci</li>
-              <li>Odpovíme s návrhem řešení a termínem</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="o-nas">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <h2>O nás</h2>
-          <p>Dodavatel pro průmysl a hydrauliku – důraz na přesnost, férové termíny a stabilní servis.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="panel">
-            <b>Firma</b>
-            <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
-              Duing Distribution s.r.o. se zaměřuje na dodávky komponent a materiálů
-              pro hydraulické systémy. Naším cílem je spolehlivá dodávka, srozumitelná komunikace a
-              konzistentní kvalita.
-            </p>
-            <ul class="list">
-              <li>Průmyslové využití a hydraulické válce</li>
-              <li>Zakázkové řešení dle specifikace</li>
-              <li>Důraz na tolerance a kvalitu povrchu</li>
-            </ul>
-          </div>
-
-          <div class="panel" id="kontakt">
-            <b>Kontakt</b>
-            <div class="contactBox" style="margin-top:10px">
-              <div class="contactRow"><span>E-mail</span><b>info@duing.cz</b></div>
-              <div class="contactRow"><span>Telefon</span><b>+420 000 000 000</b></div>
-              <div class="contactRow"><span>Adresa</span><b>Doplňte dle klienta</b></div>
+            <div class="info">
+              <b>Duing Distribution s.r.o.</b><br>
+              Radniční 910/73, 715 00 Ostrava-Michálkovice<br>
+              📞 <a href="tel:+420732273560">+420 732 273 560</a><br>
+              ✉️ <a href="mailto:jan.duda@duing.cz">jan.duda@duing.cz</a>
             </div>
 
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn btnPrimary" href="mailto:info@duing.cz">Napsat e-mail</a>
-              <a class="btn" href="#top">Zpět nahoru</a>
-            </div>
-
-            <p style="margin:12px 0 0; color:var(--muted); font-size:12px;">
-              Tip: až budeš doplňovat reálné údaje, stačí vyměnit texty výše. Design zůstane stejný.
-            </p>
+            <form action="https://formspree.io/f/xxxxyz" method="POST">
+              <input type="text" name="name" placeholder="Jméno / Firma" required>
+              <input type="email" name="email" placeholder="E-mail" required>
+              <textarea name="message" placeholder="Vaše poptávka (rozměry, materiál, množství…)" required></textarea>
+              <button class="submit" type="submit">Odeslat poptávku</button>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="wrap foot">
-        <div>© <span id="y"></span> Duing Distribution s.r.o.</div>
-        <div>pístní tyče • honované a přesné trubky</div>
+      <div class="footer-top">
+        <div class="inner footer-grid">
+          <div class="footer-box">
+            <div class="footer-title">Duing Distribution s.r.o.</div>
+            <div class="footer-line">Radniční 910/73, 715 00 Ostrava-Michálkovice</div>
+            <div class="footer-line">Dodávky pístních tyčí, honovaných a přesných trubek</div>
+          </div>
+
+          <div class="footer-box">
+            <div class="footer-title">Kontakt</div>
+            <div class="footer-line"><a href="tel:+420732273560">+420 732 273 560</a></div>
+            <div class="footer-line"><a href="mailto:jan.duda@duing.cz">jan.duda@duing.cz</a></div>
+            <div class="footer-line"><a href="#top">Zpět nahoru</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="inner row">
+          <div>Duing Distribution s.r.o. © 2026</div>
+          <div style="opacity:.85;">Web návrh – korporátní prezentace</div>
+        </div>
       </div>
     </footer>
-  </main>
 
+  </div>
+
+  <!-- Smooth “glide” scroll -->
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function () {
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const easeInOutCubic = (t) => (t < 0.5) ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      function smoothScrollTo(targetY, duration) {
+        const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const endY = Math.min(Math.max(0, targetY), maxScroll);
+        const diff = endY - startY;
+        if (Math.abs(diff) < 2) return;
+
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          window.scrollTo(0, startY + diff * easeInOutCubic(t));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const id = href.slice(1);
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('.duing .header');
+        const offset = header ? header.getBoundingClientRect().height + 10 : 0;
+
+        const rect = el.getBoundingClientRect();
+        const targetY = (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top - offset;
+
+        smoothScrollTo(targetY, 750);
+        history.pushState(null, '', href);
+      }, { passive: false });
+    })();
   </script>
 </body>
 </html>
-
